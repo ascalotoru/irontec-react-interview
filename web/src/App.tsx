@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
 import './App.css';
 import { ActivityList } from './components/ActivityList';
 import { URL } from './resources/settings'
@@ -22,10 +23,14 @@ function App() {
   }, [cont])
   
   return (
-    <>
-      <h1>Are you bored? - Here are some activities that you can do.</h1>
-      <ActivityList activityList={activities} />
-    </>
+    <Container>
+      <Row>
+        <h1>Are you bored? - Here are some activities that you can do.</h1>
+      </Row>
+      <Row>
+        <ActivityList activityList={activities} />
+      </Row>
+    </Container>
   );
 }
 
