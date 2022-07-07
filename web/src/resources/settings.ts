@@ -1,1 +1,1 @@
-export const URL='http://www.boredapi.com/api/activity'
+export const URL='https://www.boredapi.com/api/activity'
