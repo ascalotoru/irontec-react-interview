@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import './App.css';
 import { ActivityList } from './components/ActivityList';
 import { URL } from './resources/settings'
 import { Activities } from './resources/types';
+import { SearchPanel } from './components/SearchPanel';
 
 function App() {
 
@@ -17,9 +21,19 @@ function App() {
       setCont(cont + 1)
     }
   }
-  
-  useEffect(() => {
+
+  const handleClick = async () => {
+    setActivities([])
+    setCont(0)
     getResults()
+  }
+
+  useEffect(() => {
+    getResults().then( (value) => {
+      if (cont < 10) {
+        setCont(cont + 1)
+      }
+    })
   }, [cont])
   
   return (
@@ -28,8 +42,21 @@ function App() {
         <h1>Are you bored? - Here are some activities that you can do.</h1>
       </Row>
       <Row>
+        <Col>
+          <SearchPanel activityList={activities} />
+        </Col>
+      </Row>
+      <Row>
         <ActivityList activityList={activities} />
       </Row>
+      <Row>
+        <Col>
+          <Button
+            variant='primary'
+            onClick={handleClick}
+          >Actualizar</Button>
+        </Col>
+        </Row>
     </Container>
   );
 }
