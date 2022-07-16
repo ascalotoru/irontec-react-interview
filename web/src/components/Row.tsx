@@ -8,7 +8,7 @@ export const Row = ({activities}: ActivitiesProps) => {
       <td>{activities.type}</td>
       <td>{activities.participans}</td>
       <td>{activities.price}</td>
-      <td>{activities.link}</td>
+      <td><a href={activities.link}>{activities.link}</a></td>
       <td>{activities.key}</td>
       <td>{activities.accesibility}</td>
     </tr>
