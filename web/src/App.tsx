@@ -17,9 +17,6 @@ function App() {
   const getResults = async () => {
     const res = await (await fetch(URL)).json()
     setActivities([...activities, res])
-    if (cont < 10) {
-      setCont(cont + 1)
-    }
   }
 
   const handleClick = async () => {
@@ -29,11 +26,12 @@ function App() {
   }
 
   useEffect(() => {
-    getResults().then( (value) => {
+    getResults().then( () => {
       if (cont < 10) {
         setCont(cont + 1)
       }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cont])
   
   return (
@@ -43,7 +41,7 @@ function App() {
       </Row>
       <Row>
         <Col>
-          <SearchPanel activityList={activities} />
+          <SearchPanel setActivities={setActivities} activityList={activities} />
         </Col>
       </Row>
       <Row>
@@ -53,7 +51,7 @@ function App() {
         <Col>
           <Button
             variant='primary'
-            onClick={handleClick}
+            onClick={ handleClick }
           >Actualizar</Button>
         </Col>
         </Row>
