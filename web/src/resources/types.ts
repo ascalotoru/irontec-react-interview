@@ -16,3 +16,7 @@ export interface Activities {
   key: string,
   accesibility: number
 }
+
+export interface SearchPanelProps extends ActivityListProps {
+  setActivities: Function
+}
