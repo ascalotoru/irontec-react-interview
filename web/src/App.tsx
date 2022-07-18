@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import './App.css';
+import Button from 'react-bootstrap/Button';import './App.css';
 import { ActivityList } from './components/ActivityList';
 import { URL } from './resources/settings'
 import { Activities } from './resources/types';
@@ -42,9 +41,7 @@ function App() {
         <h1>Are you bored? - Here are some activities that you can do.</h1>
       </Row>
       <Row>
-        <Col>
-          <SearchPanel setActivities={setActivities} fullActivityList={fullActivities}/>
-        </Col>
+        <SearchPanel setActivities={setActivities} fullActivityList={fullActivities}/>
       </Row>
       <Row>
         <ActivityList activityList={activities} />
