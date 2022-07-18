@@ -13,6 +13,7 @@ function App() {
 
   const [activities, setActivities] = useState<Activities[]>([])
   const [cont, setCont] = useState(0)
+  const [fullActivities, setFullActivities] = useState(activities)
 
   const getResults = async () => {
     const res = await (await fetch(URL)).json()
@@ -30,6 +31,7 @@ function App() {
       if (cont < 10) {
         setCont(cont + 1)
       }
+      setFullActivities(activities)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cont])
@@ -41,7 +43,7 @@ function App() {
       </Row>
       <Row>
         <Col>
-          <SearchPanel setActivities={setActivities} activityList={activities} />
+          <SearchPanel setActivities={setActivities} fullActivityList={fullActivities}/>
         </Col>
       </Row>
       <Row>

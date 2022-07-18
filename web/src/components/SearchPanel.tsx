@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form';
-import { ActivityListProps, Activities } from '../resources/types';
+import { SearchPanelProps } from '../resources/types';
 
-export const SearchPanel = ( {activityList}:ActivityListProps ) => {
+export const SearchPanel = ( { setActivities, fullActivityList }:SearchPanelProps ) => {
   const [searchActivity, setSearchActivity] = useState('')
   const [searchType, setSearchType] = useState('')
-  const [results, setResults] = useState<Activities[]>([])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const field = e.target.name
@@ -17,15 +16,17 @@ export const SearchPanel = ( {activityList}:ActivityListProps ) => {
   }
 
   useEffect(() => {
-    const results = activityList.filter(activities => 
-      activities.activity.toLowerCase().includes(searchActivity))
-      setResults(results)
+    const results = fullActivityList.filter(activities => 
+      activities.activity.toLowerCase().includes(searchActivity.toLocaleLowerCase()))
+      setActivities(results)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchActivity])
 
   useEffect(() => {
-    const results = activityList.filter(activities => 
-      activities.type.toLowerCase().includes(searchType))
-      setResults(results)
+    const results = fullActivityList.filter(activities => 
+      activities.type.toLowerCase().includes(searchType.toLocaleLowerCase()))
+      setActivities(results)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchType])
   
   

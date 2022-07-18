@@ -17,6 +17,7 @@ export interface Activities {
   accesibility: number
 }
 
-export interface SearchPanelProps extends ActivityListProps {
+export interface SearchPanelProps {
   setActivities: Function
+  fullActivityList: Activities[]
 }
