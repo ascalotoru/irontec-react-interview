@@ -11,29 +11,44 @@ import { SearchPanel } from './components/SearchPanel';
 function App() {
 
   const [activities, setActivities] = useState<Activities[]>([])
-  const [cont, setCont] = useState(0)
   const [fullActivities, setFullActivities] = useState(activities)
 
   const getResults = async () => {
-    const res = await (await fetch(URL)).json()
-    setActivities([...activities, res])
+    const responses = await Promise.all([
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+      await (await fetch(URL)).json(),
+    ])
+    const result : Activities[] = []
+    responses.map( (res) => {
+      result.push(res)
+    })
+    return result
   }
 
   const handleClick = async () => {
     setActivities([])
-    setCont(0)
-    getResults()
+    getResults().then( (data) => {
+      setActivities(data)
+      setFullActivities(data)
+    })
   }
 
   useEffect(() => {
-    getResults().then( () => {
-      if (cont < 10) {
-        setCont(cont + 1)
-      }
-      setFullActivities(activities)
+    getResults().then( (data) => {
+      setActivities(data)
+      setFullActivities(data)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cont])
+  }, [])
   
   return (
     <Container>
