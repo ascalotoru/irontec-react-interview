@@ -34,19 +34,19 @@ function App() {
     return result
   }
 
-  const handleClick = async () => {
-    setActivities([])
+  const populateData = () => {
     getResults().then( (data) => {
       setActivities(data)
       setFullActivities(data)
     })
   }
 
+  const handleClick = async () => {
+    populateData()
+  }
+
   useEffect(() => {
-    getResults().then( (data) => {
-      setActivities(data)
-      setFullActivities(data)
-    })
+    populateData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
