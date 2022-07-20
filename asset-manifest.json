@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/irontec-react-interview/static/css/main.ff79ec8e.css",
-    "main.js": "/irontec-react-interview/static/js/main.9e49846e.js",
+    "main.js": "/irontec-react-interview/static/js/main.a4d33d69.js",
     "static/js/787.f551addb.chunk.js": "/irontec-react-interview/static/js/787.f551addb.chunk.js",
     "index.html": "/irontec-react-interview/index.html",
     "main.ff79ec8e.css.map": "/irontec-react-interview/static/css/main.ff79ec8e.css.map",
-    "main.9e49846e.js.map": "/irontec-react-interview/static/js/main.9e49846e.js.map",
+    "main.a4d33d69.js.map": "/irontec-react-interview/static/js/main.a4d33d69.js.map",
     "787.f551addb.chunk.js.map": "/irontec-react-interview/static/js/787.f551addb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ff79ec8e.css",
-    "static/js/main.9e49846e.js"
+    "static/js/main.a4d33d69.js"
   ]
 }
